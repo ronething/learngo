@@ -1,15 +1,15 @@
 package queue
 
-type Quque []int
+type Quque []interface{} // interface{} 表示各种类型
 
-func (q *Quque) Push(v int) {
-	*q = append(*q, v)
+func (q *Quque) Push(v interface{}) {
+	*q = append(*q, v.(int))
 }
 
-func (q *Quque) Pop() int {
+func (q *Quque) Pop() interface{} {
 	head := (*q)[0]
 	*q = (*q)[1:]
-	return head
+	return head.(int)
 }
 
 func (q *Quque) IsEmpty() bool {
