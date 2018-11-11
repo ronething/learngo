@@ -5,6 +5,22 @@ import (
 	"learngo/tree"
 )
 
+type myTreeNode struct {
+	node *tree.Node
+}
+
+// 后续遍历
+func (myNode *myTreeNode) postOrder() {
+	if myNode == nil || myNode.node == nil {
+		return
+	}
+	left := myTreeNode{myNode.node.Left}
+	left.postOrder()
+	right := myTreeNode{myNode.node.Right}
+	right.postOrder()
+	myNode.node.Print()
+}
+
 func main() {
 	var root tree.Node
 	//fmt.Println(root)
@@ -20,12 +36,12 @@ func main() {
 	fmt.Println()
 	root.Traverse()
 
-	var pRoot *tree.Node
-	fmt.Println(pRoot) // 这里 pRoot 是 nil
-	pRoot.SetValue(200)
-	pRoot = &root
-	pRoot.SetValue(300)
-	pRoot.Print()
+	//var pRoot *tree.Node
+	//fmt.Println(pRoot) // 这里 pRoot 是 nil
+	//pRoot.SetValue(200)
+	//pRoot = &root
+	//pRoot.SetValue(300)
+	//pRoot.Print()
 
 	//pRoot := &root
 	//pRoot.print()
@@ -38,4 +54,10 @@ func main() {
 	//	{6, nil, &root},
 	//}
 	//fmt.Println(nodes)
+
+	fmt.Println()
+	myRoot := myTreeNode{&root}
+	myRoot.postOrder()
+	fmt.Println()
+
 }
