@@ -17,7 +17,9 @@ func convertToBin(n int) string {
 }
 
 func printFile(filename string) {
-	file, err := os.Open(filename)
+	pwd, _ := os.Getwd()
+	pwd += "/loop/"
+	file, err := os.Open(pwd + filename)
 	if err != nil {
 		panic(err)
 	}
