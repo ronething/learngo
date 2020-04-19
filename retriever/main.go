@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"learngo/retriever/mock"
-	"learngo/retriever/real"
 	"time"
+
+	"github.com/ronething/learngo/retriever/mock"
+	"github.com/ronething/learngo/retriever/real"
 )
 
 type Retiever interface {

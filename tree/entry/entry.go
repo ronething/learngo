@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"learngo/tree"
+
+	"github.com/ronething/learngo/tree"
 )
 
 type myTreeNode struct {

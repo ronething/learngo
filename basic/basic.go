@@ -48,29 +48,43 @@ func euler() {
 	fmt.Printf("%.3f\n", cmplx.Pow(math.E, 1i*math.Pi)+1)
 }
 
-func triangle() {
-	var a, b int = 3, 4
+func triangle(a, b int) int {
+	//var a, b int = 3, 4
 	var c int
 	c = int(math.Sqrt(float64(a*a + b*b)))
 	fmt.Println(c)
+	return c
 }
 
 // 常量的定义
 func consts() {
 	const filename = "abc.txt"
-	const a, b = 3, 4
+	const a, b = 3, 4 // 不规定类型 常量的话 既可以作 int ,可以作 float
+	// const a int = 3 显式声明的话 下面 math.Sqrt() 就会报错
 	var c int
 	c = int(math.Sqrt(a*a + b*b))
 	fmt.Println(filename, c)
 }
 
+// 枚举类型
 func enums() {
 	const (
 		python = iota
 		java
 		golang
 	)
+
+	//  b, kb, kb,
+	const (
+		b = 1 << (10 * iota)
+		kb
+		mb
+		gb
+		tb
+		pb
+	)
 	fmt.Println(python, java, golang)
+	fmt.Println(b, kb, mb, gb, tb, pb)
 }
 
 func main() {
@@ -81,7 +95,7 @@ func main() {
 	variableShorter()
 	fmt.Println(author + " " + blog + " " + github)
 	euler()
-	triangle()
+	//triangle()
 	consts()
 	enums()
 }

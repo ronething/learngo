@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"learngo/queue"
+
+	"github.com/ronething/learngo/queue"
 )
 
 func main() {
